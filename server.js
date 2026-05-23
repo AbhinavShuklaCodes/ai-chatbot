@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const OpenAI = require("openai");
+const OpenAI = require("openai").default;
 
 const app = express();
 
@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 const client = new OpenAI({
-  apiKey: apiKey: process.env.GROQ_API_KEY,
+  apiKey: process.env.GROQ_API_KEY,
   baseURL: "https://api.groq.com/openai/v1",
 });
 
